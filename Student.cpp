@@ -27,12 +27,31 @@ class Student{
         }
 };
 
+class Teacher
+{
+    private:
+        string subject;
+
+    public:
+        Teacher(string NewSubject) { this->subject = NewSubject; }
+        void giveGrade(Student& student, int grade){
+            student.add_grade(grade);
+        }
+
+        string getSubject(){
+            return this->subject;
+        }
+};
+
 int main()
 {
     Student s1("Misha", "Petrov");
+    Teacher t("Math");
+    t.giveGrade(s1, 5);
     s1.add_grade(3);
     s1.add_grade(2);
     s1.add_grade(5);
     cout << (s1.Excelent_student()?"Excellent":"Not excellent") << endl;
+    cout << t.getSubject() << endl;
     return 0;
 }
